@@ -14,6 +14,9 @@ no, it's perfect for normal people too but it depends on what you do, video and 
 no, i'm not one either, i'm just doing it for the memes and stereotype
 though this is funny as hell [gentoo speedrun femboy edition](https://youtu.be/uqrqbk93v5Y)
 
+# am i sleep deprived
+yes.
+
 # funny linux memes
 [meme 1](https://youtu.be/G73pZL1aw5c)
 [meme 2](https://youtu.be/VjGSMUep6_4)
