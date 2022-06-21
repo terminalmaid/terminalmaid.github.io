@@ -26,11 +26,11 @@ jobs:
                   python-version: ${{ matrix.python-version }}
 
             - name: Install python requirements
-              run: |
+            - run: |
                   pip install --user -r requirements.txt
 
             - name: Build markdown
-              run: |
+            - run: |
                   python3 ./scripts/gen ./README.md ./index.html
 
             - name: Deploy GitHub pages
