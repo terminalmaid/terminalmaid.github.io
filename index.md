@@ -36,7 +36,4 @@ Yes.
 - [Meme 3](https://youtu.be/hbhoAr8GV98)
 - [Meme 4](https://youtu.be/FWW7SUbjicg)
 
-# cool markdown experiment
-[here](markdownisveryfuckingcool.md)
-
 owo >_<
