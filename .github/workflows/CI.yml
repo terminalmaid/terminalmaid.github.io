@@ -1,5 +1,3 @@
-name: GitHub pages generation and deploy
-
 on:
     push:
         branches:
