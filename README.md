@@ -12,7 +12,7 @@ and I also script in BASH. I also enjoy shitposting.
 # my videos
 I might start posting some content from my
 server on my youtube channel ([link](https://m.youtube.com/channel/UCOHGrQf_8o57I9hg0G1DSrA))
-a bit later.
+in a week or 2.
 
 # is Linux for hackers?
 No, it's perfect for normal people too but it depends
