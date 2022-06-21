@@ -1,12 +1,12 @@
-name: GitHub pages deploy
+name: GitHub pages generation and deploy
 
 on:
     push:
         branches:
-            - "main"
+            - main
     pull_request:
         branches:
-            - "main"
+            - main
 
 jobs:
     build:
@@ -20,18 +20,25 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v3
 
-            - name: Python setup
+            - name: Setup python ${{ matrix.python-version }}
               uses: actions/setup-python@v3
               with:
                   python-version: ${{ matrix.python-version }}
 
-            - name: Build pages
-            - run: python3 ./scripts/gen ./README.md ./index.html
+            - name: Install python requirements
+              run: |
+                  pip install --user -r requirements.txt
 
-            - name: Deploy pages
+            - name: Build markdown
+            - run: |
+                  python3 ./scripts/gen ./README.md ./index.html
+
+            - name: Deploy GitHub pages
+              if: success()
               uses: crazy-max/ghaction-github-pages@v3
               with:
                   target_branch: main
                   build_dir: .
+                  jekyll: false
                   env:
                       GITHUB_TOKENN: ${{ secrets.GITHUB_REPO_TOKEN }}
