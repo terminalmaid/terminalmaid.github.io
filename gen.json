@@ -1,0 +1,10 @@
+{
+    "title": "My website",
+    "description": "My website",
+    "keywords": [
+        "website",
+        "dark"
+    ],
+    "theme": "dark",
+    "styles": "/styles.css"
+}

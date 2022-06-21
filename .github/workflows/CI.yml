@@ -1,0 +1,37 @@
+name: GitHub pages deploy
+
+on:
+    push:
+        branches:
+            - "main"
+    pull_request:
+        branches:
+            - "main"
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                python-version: 3.9
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Python setup
+              uses: actions/setup-python@v3
+              with:
+                  python-version: ${{ matrix.python-version }}
+
+            - name: Build pages
+            - run: python3 ./scripts/gen ./README.md ./index.html
+
+            - name: Deploy pages
+              uses: crazy-max/ghaction-github-pages@v3
+              with:
+                  target_branch: main
+                  build_dir: .
+                  env:
+                      GITHUB_TOKENN: ${{ secrets.GITHUB_REPO_TOKEN }}
