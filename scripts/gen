@@ -1,0 +1,105 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Generate html using python markdown"""
+
+import json
+import sys
+from os import path as OsPath
+from typing import Any, Dict
+from warnings import filterwarnings as filter_warnings
+
+from markdown import markdown  # type: ignore
+
+DEFAULT_CONFIG_FILE: str = "gen.json"
+
+DEFAULT_CONFIG: Dict[str, Any] = {
+    "title": "My website",
+    "description": "My website",
+    "keywords": ["website", "dark"],
+    "theme": "dark",
+    "styles": "/styles.css",
+}
+
+HTML_TEMPLATE: str = """<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{title}</title>
+
+        <meta name="description" content="{description}" />
+        <meta name="keywords" content="{keywords}" />
+        <meta name="robots"
+            content="follow, index, max-snippet:-1, \
+max-video-preview:-1, max-image-preview:large"
+        />
+
+        <meta property="og:type" content="website" />
+        <meta name="color-scheme" content="{theme}" />
+        <meta name="generator" content="Python3 markdown generator created \
+by Ari Archer" />
+
+        <link rel="stylesheet" href="{styles}" />
+    </head>
+
+    <body>
+        {content}
+    </body>
+</html>"""
+
+
+def log(msg: str) -> None:
+    """Log a message"""
+    print(f"LOG: {msg}")
+
+
+def main() -> int:
+    """Entry/main function"""
+
+    if len(sys.argv) != 3:
+        print(
+            f"Usage: {sys.argv[0]} \
+<input.md> <output.html>",
+            file=sys.stderr,
+        )
+        return 1
+
+    if not OsPath.exists(DEFAULT_CONFIG_FILE):
+        log("Creating default config")
+
+        with open(DEFAULT_CONFIG_FILE, "w") as cfg:
+            json.dump(DEFAULT_CONFIG, cfg, indent=4)
+
+    log(f"Loading {DEFAULT_CONFIG_FILE!r}")
+    with open(DEFAULT_CONFIG_FILE, "r") as cfg:
+        config: Dict[str, Any] = json.load(cfg)
+
+    log(f"Generating HTML from {sys.argv[1]!r}")
+    with open(sys.argv[1], "r") as md:
+        md_html: str = markdown(md.read())
+
+    log(f"Templating HTML and writting to {sys.argv[2]!r}")
+    with open(sys.argv[2], "w") as html:
+        html.write(
+            HTML_TEMPLATE.format(
+                title=config["title"],
+                description=config["description"],
+                keywords=", ".join(config["keywords"]),
+                theme=config["theme"],
+                styles=config["styles"],
+                content=md_html,
+            )
+        )
+
+    log("done")
+
+    return 0
+
+
+if __name__ == "__main__":
+    assert main.__annotations__.get("return") is int, "main() should return an integer"
+
+    filter_warnings("error", category=Warning)
+    sys.exit(main())
