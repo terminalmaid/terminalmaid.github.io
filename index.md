@@ -1,12 +1,12 @@
 # Welcome to my website!
 It's quite barebones, but after spending hours fucking
-around with hugo and jekyll I decided to settle on simple
+around with Hugo and Jekyll I decided to settle on simple
 markdown cuz why not. This page is just a about-me/q&a
-page about both me and linux
+page about both me and Linux.
 
 # Who tf am I
-I'm terminalmaid and I enjoy minecraft a lot,
-I currently host a public modded anarchy server ([discord link](https://discord.gg/cAPkZUhA8n)),
+I'm Terminalmaid and I enjoy Minecraft a lot,
+I currently host a public modded anarchy server ([Discord link](https://discord.gg/cAPkZUhA8n)),
 and I also script in BASH. I also enjoy shitposting.
 
 # My videos
@@ -19,13 +19,13 @@ No, it's perfect for normal people too but it depends
 on what you do, video and photo editors might find Linux hard to
 use but for most people it's the same thing but free.
 Linux might be associated with hacking because it's way
-easier to use for those things but its just another stereotype mostly
+easier to use for those things but its just another stereotype mostly.
 
 # Are all Linux users femboy maids?
 <!-- Yes -->
 No, I'm not one either, I'm just doing it for
 the memes and stereotype though this is funny as hell:
-[Gentoo speedrun femboy edition](https://youtu.be/uqrqbk93v5Y)
+[Gentoo speedrun femboy edition](https://youtu.be/uqrqbk93v5Y).
 
 # Am I sleep deprived
 Yes.
