@@ -41,4 +41,4 @@ jobs:
                   build_dir: .
                   jekyll: false
                   env:
-                      GITHUB_TOKENN: ${{ secrets.GITHUB_REPO_TOKEN }}
+                      GITHUB_TOKEN: ${{ secrets.GITHUB_REPO_TOKEN }}
